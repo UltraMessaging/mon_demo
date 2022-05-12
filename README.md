@@ -4,6 +4,31 @@ to demonstrate setting up UM automatic monitoring.
 
 # Table of contents
 
+- [mon_demo](#mon_demo)
+- [Table of contents](#table-of-contents)
+  - [COPYRIGHT AND LICENSE](#copyright-and-license)
+  - [REPOSITORY](#repository)
+  - [INTRODUCTION](#introduction)
+    - [Impact of Monitoring on Latency](#impact-of-monitoring-on-latency)
+    - [Configuration Goals](#configuration-goals)
+  - [Run the demo](#run-the-demo)
+  - [Interpreting the Data](#interpreting-the-data)
+    - [Monitoring Records](#monitoring-records)
+    - [lbmsrc](#lbmsrc)
+      - [Source Statistics](#source-statistics)
+      - [Context Statistics](#context-statistics)
+    - [lbmmsrc](#lbmmsrc)
+      - [Source Statistics](#source-statistics)
+      - [Context Statistics](#context-statistics)
+    - [lbmrcv](#lbmrcv)
+      - [Receiver Statistics 1](#receiver-statistics-1)
+      - [Receiver Statistics 2](#receiver-statistics-2)
+      - [Context Statistics](#context-statistics)
+    - [lbmwrcv](#lbmwrcv)
+      - [Receiver Statistics 1](#receiver-statistics-1)
+      - [Receiver Statistics 2](#receiver-statistics-2)
+      - [Context Statistics](#context-statistics)
+
 <sup>(table of contents from https://luciopaiva.com/markdown-toc/)</sup>
 
 ## COPYRIGHT AND LICENSE
