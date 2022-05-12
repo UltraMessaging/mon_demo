@@ -93,6 +93,8 @@ The "demo.cfg" configuration file is for production data.
 
 The "mon.cfg" configuration file is for monitoring data.
 
+The "lbmrd.xml" configuration file is for the lbmrd daemon.
+
 The publisher and subscriber applications used in this demo are:
 * [lbmsrc](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmsrc_c) -
 Publish to one topic: "29west.example.multi.0".
@@ -112,8 +114,9 @@ Capture monitoring records and write them to a file.
 
 # Run the demo
 
-First, edit the files "demo.cfg" and "mon.cfg" and make appropriate changes
-for your network and environment. 
+First, edit the files "demo.cfg", "mon.cfg", and "lbmrd.xml" and make
+appropriate changes for your network and environment (e.g. interface IPs
+and multicast groups).
 
 Next, make a copy of "lbm.sh" into the parent directory and edit it.
 Make appropriate changes for your UM license and installation location.
