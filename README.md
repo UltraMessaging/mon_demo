@@ -270,7 +270,7 @@ the sender attempted to exceed the maximum configured output rate.
 For streaming, this indicates exceeding the
 [LBT-RM rate limiter](https://ultramessaging.github.io/currdoc/doc/Config/html1/index.html#transportlbtrmdataratelimitcontext).
 For persistence, it could also mean exceeding the configured
-[flight size]()https://ultramessaging.github.io/currdoc/doc/Config/html1/index.html#umeflightsizesource.
+[flight size](https://ultramessaging.github.io/currdoc/doc/Config/html1/index.html#umeflightsizesource).
 
 * ***Number of times message send returned EWOULDBLOCK: 0*** -
 Same as "blocked" above, but with
