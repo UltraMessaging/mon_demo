@@ -7,7 +7,7 @@ else :
   exit 1
 fi
 
-source ./lbm.sh
+source ../lbm.sh
 
 rm -f *.log
 

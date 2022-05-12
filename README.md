@@ -115,6 +115,9 @@ Capture monitoring records and write them to a file.
 First, edit the files "demo.cfg" and "mon.cfg" and make appropriate changes
 for your network and environment. 
 
+Next, make a copy of "lbm.sh" into the parent directory and edit it.
+Make appropriate changes for your UM license and installation location.
+
 The "tst.sh" shell script runs a set of applications and the
 "lbmmon" program to collect the statistics.
 It takes about one minute and ten seconds to run.
