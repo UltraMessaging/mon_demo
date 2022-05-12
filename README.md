@@ -69,16 +69,21 @@ The "demo.cfg" configuration file is for production data.
 The "mon.cfg" configuration file is for monitoring data.
 
 The publisher and subscriber applications used in this demo are:
-* [lbmsrc](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmsrc_c) - publish to one topic: "29west.example.multi.0".
-* [lbmmsrc](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmmsrc_c) - publish to two topics: "29west.example.multi.0" and "29west.example.multi.1".
-* [lbmrcv](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmrcv_c) - subscribe to one topic: "29west.example.multi.0".
-* [lbmwrcv](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmwrcv_c) - subscribe to two topics: "29west.example.multi.0" and "29west.example.multi.1" (uses a wildcard pattern).
+* [lbmsrc](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmsrc_c) -
+Publish to one topic: "29west.example.multi.0".
+* [lbmmsrc](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmmsrc_c) -
+Publish to two topics: "29west.example.multi.0" and "29west.example.multi.1".
+* [lbmrcv](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmrcv_c) -
+Subscribe to one topic: "29west.example.multi.0".
+* [lbmwrcv](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmwrcv_c) -
+Subscribe to two topics: "29west.example.multi.0" and "29west.example.multi.1"
+(uses a wildcard pattern).
 
 Also used are:
 * [lbmrd](https://ultramessaging.github.io/currdoc/doc/Design/manpagesforlbmrd.html) -
-for the monitoring data Topic Resolution Domain (TRD).
+Unicast topic resolution daemon for the monitoring data TRD.
 * [lbmmon](https://ultramessaging.github.io/currdoc/doc/example/index.html#examplelbmmon_c) -
-to capture monitoring records and write them to a file.
+Capture monitoring records and write them to a file.
 
 ## Run the demo
 
