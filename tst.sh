@@ -1,32 +1,39 @@
 #!/bin/sh
 # tst.sh
 
-source ../lbm.sh
+if hostname | egrep -i "mamba" >/dev/null; then :
+else :
+  echo "Must be run on Mamba" >&2
+  exit 1
+fi
+
+source ./lbm.sh
+
+rm -f *.log
 
 lbmrd lbmrd.xml >lbmrd.log 2>&1 &
 LBMRD_PID="$!"
 sleep 0.1
 
-cp mon.template mon.cfg
-ifconfig | sed -n 's/^.*\(10\.29\.3\.[0-9]*\)[^0-9].*/context resolver_unicast_daemon \1:12001/p' >>mon.cfg
-
 lbmmon --transport-opts="config=mon.cfg" >lbmmon.log 2>&1 &
 LBMMON_PID="$!"
 sleep 0.1
 
-# Give this one a little loss.
-LBTRM_LOSS_RATE=1 lbmmrcv -c demo.cfg -E -C 1 -R 1 >lbmmrcv1.log 2>&1 &
-LBMMRCV1_PID="$!"
+# Give lbmrcv a little loss.
+LBTRM_LOSS_RATE=1 lbmrcv -c demo.cfg -E 29west.example.multi.0 2>&1 >lbmrcv.log &
+LBMRCV_PID="$!"
 
-lbmwrcv -c demo.cfg -E ".*" >lbmwrcv.log 2>&1 &
+# lbmwrc will subscribe to all topics, which will be 29west.example.multi.0 and 29west.example.multi.1
+lbmwrcv -c demo.cfg -E -v "^29west\.example\.multi\.[01]$" >lbmwrcv.log 2>&1 &
 LBMWRCV_PID="$!"
 
-lbmmsrc -c demo.cfg -M 50000 -P 1 -S 1 -T 1 >lbmmsrc1.log 2>&1 &
-LBMMSRC1_PID="$!"
+lbmsrc -c demo.cfg -M 50000 -P 1 29west.example.multi.0 >lbmsrc.log 2>&1 &
+LBMSRC_PID="$!"
 
-lbmmsrc -c demo.cfg -M 50000 -P 1 -S 2 -T 1 >lbmmsrc2.log 2>&1 &
-LBMMSRC2_PID="$!"
+# lbmmsrc will publish 2 topics: 29west.example.multi.0 and 29west.example.multi.1
+lbmmsrc -c demo.cfg -M 50000 -P 1 -S 2 -T 1 >lbmmsrc.log 2>&1 &
+LBMMSRC_PID="$!"
 
-wait $LBMMRCV1_PID $LBMWRCV_PID $LBMMSRC1_PID $LBMMSRC2_PID
+wait $LBMRCV_PID $LBMWRCV_PID $LBMSRC_PID $LBMMSRC_PID
 
 kill $LBMMON_PID $LBMRD_PID
