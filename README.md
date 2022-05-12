@@ -101,7 +101,7 @@ This is to demonstrate the presence of loss/NAK-related statistics.
 ## Interpreting the Data
 
 Here's an illustration of the test:
-![Figure 1](Fig1.png)
+![Figure 1](figure1.png)
 
 The TS1 transport session is published by the "lbmsrc" app and
 in this run has the source string:
