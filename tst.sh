@@ -1,12 +1,6 @@
 #!/bin/sh
 # tst.sh
 
-if hostname | egrep -i "mamba" >/dev/null; then :
-else :
-  echo "Must be run on Mamba" >&2
-  exit 1
-fi
-
 source ../lbm.sh
 
 rm -f *.log
