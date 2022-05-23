@@ -85,7 +85,7 @@ production data.
 the production data.
 For example, use the administrative network.
 This eliminates contention for network resources.
-Note that multicast is not used for monitoring.
+Note that in this demo, multicast is not used for monitoring.
 * Disable the monitoring context's MIM and request ports.
 This minimizes the use of host resources.
 
@@ -158,15 +158,15 @@ source transport_lbtrm_multicast_address 239.101.3.10
 ````
 
 The file "lbmmon.log" contains the output of the "lbmmon" program for a
-a sample run of the "tst.sh" script.
+sample run of the "tst.sh" script.
 It contains statistics records from each of the apps.
 
 ### Monitoring Records
 
 This test run writes three kinds of monitoring records to "lbmmon.log":
-* Source Statistics (written by the apps "lbmsrc" and "lbmmsrc")
-* Receiver Statistics (written by the apps "lbmrcv" and "lbmwrcv")
-* Context Statistics (written by all of the apps)
+* Source Statistics (sent by the apps "lbmsrc" and "lbmmsrc")
+* Receiver Statistics (sent by the apps "lbmrcv" and "lbmwrcv")
+* Context Statistics (sent by all of the apps)
 
 ## lbmsrc
 
