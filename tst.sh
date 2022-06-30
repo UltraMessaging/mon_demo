@@ -1,7 +1,7 @@
 #!/bin/sh
 # tst.sh
 
-source ../lbm.sh
+source ~/lbm.sh
 
 rm -f *.log
 
