@@ -118,11 +118,11 @@ First, edit the files "demo.cfg", "mon.cfg", and "lbmrd.xml" and make
 appropriate changes for your network and environment (e.g. interface IPs
 and multicast groups).
 
-Next, make a copy of "lbm.sh" into the parent directory and edit it.
+Next, make a copy of "lbm.sh" into your home directory and edit it.
 Make appropriate changes for your UM license and installation location.
 
-The "tst.sh" shell script runs a set of applications and the
-"lbmmon" program to collect the statistics.
+The "tst.sh" shell script sources "~/lbm.sh" and runs a set of applications
+and the "lbmmon" program to collect the statistics.
 It takes about one minute and ten seconds to run.
 
 See the file "lbmmon.log" for the output of my example run of the
