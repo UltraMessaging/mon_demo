@@ -75,6 +75,12 @@ the latency or throughput for application messages.
 (Before UM 6.10, there was a contention point that caused the occasional
 latency outlier. This was fixed in 6.10.)
 
+To minimize impact of monitoring on the application,
+the monitoring data shoud be sent on a different TRD than application data.
+Ideally this TRD would be hosted on an independent network,
+like perhaps the admin network used for logging into and maintaining
+the host.
+
 ## Configuration Goals
 
 * Put monitoring data on a separate Topic Resolution Domain (TRD) from
