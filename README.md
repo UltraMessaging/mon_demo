@@ -35,7 +35,7 @@ to demonstrate setting up UM automatic monitoring.
 
 All of the documentation and software included in this and any
 other Informatica Ultra Messaging GitHub repository
-Copyright (C) Informatica. All rights reserved.
+Copyright (C) Informatica, 2022. All rights reserved.
 
 Permission is granted to licensees to use
 or alter this software for any purpose, including commercial applications,
