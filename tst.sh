@@ -2,7 +2,7 @@
 # tst.sh
 
 # Define "LD_LIBRARY_PATH" and "PATH" and "LBM_LICENSE_INFO".
-source ~/lbm.sh
+source ./lbm.sh
 
 rm -f *.log
 
