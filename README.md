@@ -2,34 +2,35 @@
 A set of Ultra Messaging configuration files and a test script
 to demonstrate setting up UM automatic monitoring.
 
-# Table of contents
+<!--ts-->
+* [mon_demo](#mon_demo)
+* [COPYRIGHT AND LICENSE](#copyright-and-license)
+* [REPOSITORY](#repository)
+* [INTRODUCTION](#introduction)
+   * [Impact of Monitoring on Latency](#impact-of-monitoring-on-latency)
+   * [Configuration Goals](#configuration-goals)
+* [Run the demo](#run-the-demo)
+   * [Interpreting the Data](#interpreting-the-data)
+      * [Monitoring Records](#monitoring-records)
+   * [lbmsrc](#lbmsrc)
+      * [Source Statistics](#source-statistics)
+      * [Context Statistics](#context-statistics)
+   * [lbmmsrc](#lbmmsrc)
+      * [Source Statistics](#source-statistics-1)
+      * [Context Statistics](#context-statistics-1)
+   * [lbmrcv](#lbmrcv)
+      * [Receiver Statistics 1](#receiver-statistics-1)
+      * [Receiver Statistics 2](#receiver-statistics-2)
+      * [Context Statistics](#context-statistics-2)
+   * [lbmwrcv](#lbmwrcv)
+      * [Receiver Statistics 1](#receiver-statistics-1-1)
+      * [Receiver Statistics 2](#receiver-statistics-2-1)
+      * [Context Statistics](#context-statistics-3)
 
-- [mon_demo](#mon_demo)
-- [Table of contents](#table-of-contents)
-- [COPYRIGHT AND LICENSE](#copyright-and-license)
-- [REPOSITORY](#repository)
-- [INTRODUCTION](#introduction)
-  - [Impact of Monitoring on Latency](#impact-of-monitoring-on-latency)
-  - [Configuration Goals](#configuration-goals)
-- [Run the demo](#run-the-demo)
-  - [Interpreting the Data](#interpreting-the-data)
-    - [Monitoring Records](#monitoring-records)
-  - [lbmsrc](#lbmsrc)
-    - [Source Statistics](#source-statistics)
-    - [Context Statistics](#context-statistics)
-  - [lbmmsrc](#lbmmsrc)
-    - [Source Statistics](#source-statistics)
-    - [Context Statistics](#context-statistics)
-  - [lbmrcv](#lbmrcv)
-    - [Receiver Statistics 1](#receiver-statistics-1)
-    - [Receiver Statistics 2](#receiver-statistics-2)
-    - [Context Statistics](#context-statistics)
-  - [lbmwrcv](#lbmwrcv)
-    - [Receiver Statistics 1](#receiver-statistics-1)
-    - [Receiver Statistics 2](#receiver-statistics-2)
-    - [Context Statistics](#context-statistics)
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: sford, at: Fri Jul  7 15:14:52 EDT 2023 -->
 
-<sup>(table of contents from https://luciopaiva.com/markdown-toc/)</sup>
+<!--te-->
 
 # COPYRIGHT AND LICENSE
 
@@ -123,6 +124,10 @@ Capture monitoring records and write them to a file.
 First, edit the files "demo.cfg", "mon.cfg", and "lbmrd.xml" and make
 appropriate changes for your network and environment (e.g. interface IPs
 and multicast groups).
+Search for "10.29" to find IP addresses that you should change.
+Note that some are coded as CIDR groups. E.g. "10.29.3.0/24".
+In these cases, you should typically change the first three
+numbers to match your test host's IP address.
 
 Next, copy "lbm.sh.example" to "lbm.sh" and edit it.
 Make appropriate changes for your UM license and installation location.
