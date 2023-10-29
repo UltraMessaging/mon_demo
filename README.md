@@ -61,6 +61,11 @@ See https://github.com/UltraMessaging/mon_demo for code and documentation.
 
 # INTRODUCTION
 
+This repository is largely replaced by https://github.com/UltraMessaging/mcs_demo
+which demonstrates more statistics.
+This demo does still contain some interesting information,
+especially the [Interpreting the Data](#interpreting-the-data) sections.
+
 Informatica recommends that Ultra Messaging users enable the
 automatic monitoring feature in their UM-based applications and most
 UM daemons (Store, DRO, etc.).
