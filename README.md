@@ -64,8 +64,8 @@ It concentrates on transport statistics and does not include daemon statistics
 like Store and DRO.
 
 For more monitoring-related examples, see:
-* https://github.com/UltraMessaging/mcs_demo
-* https://github.com/UltraMessaging/mcs_json_print
+* https://github.com/UltraMessaging/mcs_demo - concentrates on collecting data from apps and UM daemons (Store, etc).
+* https://github.com/UltraMessaging/mcs_json_print - user plugin to access monitoring data in JSON.
 
 Informatica recommends that Ultra Messaging users enable the
 automatic monitoring feature in their UM-based applications and most
