@@ -2,37 +2,34 @@
 A set of Ultra Messaging configuration files and a test script
 to demonstrate setting up UM automatic monitoring.
 
-<!--ts-->
-* [mon_demo](#mon_demo)
-* [COPYRIGHT AND LICENSE](#copyright-and-license)
-* [REPOSITORY](#repository)
-* [INTRODUCTION](#introduction)
-   * [Impact of Monitoring on Latency](#impact-of-monitoring-on-latency)
-   * [Configuration Goals](#configuration-goals)
-* [Run the demo](#run-the-demo)
-   * [Interpreting the Data](#interpreting-the-data)
-      * [Monitoring Records](#monitoring-records)
-   * [lbmsrc](#lbmsrc)
-      * [Source Statistics](#source-statistics)
-      * [Context Statistics](#context-statistics)
-   * [lbmmsrc](#lbmmsrc)
-      * [Source Statistics](#source-statistics-1)
-      * [Context Statistics](#context-statistics-1)
-   * [lbmrcv](#lbmrcv)
-      * [Receiver Statistics 1](#receiver-statistics-1)
-      * [Receiver Statistics 2](#receiver-statistics-2)
-      * [Context Statistics](#context-statistics-2)
-   * [lbmwrcv](#lbmwrcv)
-      * [Receiver Statistics 1](#receiver-statistics-1-1)
-      * [Receiver Statistics 2](#receiver-statistics-2-1)
-      * [Context Statistics](#context-statistics-3)
+<!-- mdtoc-start -->
+&bull; [mon_demo](#mon_demo)  
+&bull; [Copyright and License](#copyright-and-license)  
+&bull; [Repository](#repository)  
+&bull; [Introduction](#introduction)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Impact of Monitoring on Latency](#impact-of-monitoring-on-latency)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Configuration Goals](#configuration-goals)  
+&bull; [Run the demo](#run-the-demo)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Interpreting the Data](#interpreting-the-data)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Monitoring Records](#monitoring-records)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [lbmsrc](#lbmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Source Statistics (lbmsrc)](#source-statistics-lbmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Context Statistics (lbmsrc)](#context-statistics-lbmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [lbmmsrc](#lbmmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Source Statistics (lbmmsrc)](#source-statistics-lbmmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Context Statistics (lbmmsrc)](#context-statistics-lbmmsrc)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [lbmrcv](#lbmrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Receiver Statistics 1 (lbmrcv)](#receiver-statistics-1-lbmrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Receiver Statistics 2 (lbmrcv)](#receiver-statistics-2-lbmrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Context Statistics (lbmrcv)](#context-statistics-lbmrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [lbmwrcv](#lbmwrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Receiver Statistics 1 (lbmwrcv)](#receiver-statistics-1-lbmwrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Receiver Statistics 2 (lbmwrcv)](#receiver-statistics-2-lbmwrcv)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Context Statistics](#context-statistics)  
+<!-- TOC created by '/home/sford/bin/mdtoc.pl ./README.md' (see https://github.com/fordsfords/mdtoc) -->
+<!-- mdtoc-end -->
 
-<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: sford, at: Fri Jul  7 15:14:52 EDT 2023 -->
-
-<!--te-->
-
-# COPYRIGHT AND LICENSE
+# Copyright and License
 
 All of the documentation and software included in this and any
 other Informatica Ultra Messaging GitHub repository
@@ -55,16 +52,20 @@ INDIRECT DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT OR THE
 TRANSACTIONS CONTEMPLATED HEREUNDER, EVEN IF INFORMATICA HAS BEEN APPRISED OF
 THE LIKELIHOOD OF SUCH DAMAGES.
 
-# REPOSITORY
+# Repository
 
 See https://github.com/UltraMessaging/mon_demo for code and documentation.
 
-# INTRODUCTION
+# Introduction
 
-This repository is largely replaced by https://github.com/UltraMessaging/mcs_demo
-which demonstrates more statistics.
-This demo does still contain some interesting information,
-especially the [Interpreting the Data](#interpreting-the-data) sections.
+This repository demonstrates how to collect and interpret some important UM
+statistics.
+It concentrates on transport statistics and does not include daemon statistics
+like Store and DRO.
+
+For more monitoring-related examples, see:
+* https://github.com/UltraMessaging/mcs_demo
+* https://github.com/UltraMessaging/mcs_json_print
 
 Informatica recommends that Ultra Messaging users enable the
 automatic monitoring feature in their UM-based applications and most
@@ -191,7 +192,7 @@ app publishes to one topic.
 Its statistics consist of one context record and one source record
 per monitoring interval.
 
-### Source Statistics
+### Source Statistics (lbmsrc)
 
 Here is the final source record from "lbmsrc":
 ````
@@ -245,7 +246,7 @@ unusual for some NAKs to be rejected and not generate retransmission.
 The "ignored", "shed", and "ignored (retransmit delay)" counters
 are reasons for rejecting retransmissions.
 
-### Context Statistics
+### Context Statistics (lbmsrc)
 
 Here is the final context record from "lbmsrc":
 ````
@@ -331,7 +332,7 @@ But both topics are mapped to the same transport session.
 Therefore, there is one context record and only one source record
 per monitoring interval.
 
-### Source Statistics
+### Source Statistics (lbmmsrc)
 
 Here is the final source record from "lbmmsrc":
 ````
@@ -372,7 +373,7 @@ allowing enough time for one more monitoring interval after the last send.
 
 The discussion of the other stats is similar to the "lbmsrc" stats.
 
-### Context Statistics
+### Context Statistics (lbmmsrc)
 
 Here is the final context record from "lbmmsrc":
 ````
@@ -422,7 +423,7 @@ so "lbmrcv" will join both transport sessions.
 Its statistics consist of one context record and two receiver records
 (one for each joined transport session).
 
-### Receiver Statistics 1
+### Receiver Statistics 1 (lbmrcv)
 
 Here is the final receiver record from "lbmrcv" for transport session TS1
 "LBTRM:10.29.4.101:12090:3000f59f:239.101.3.10:14400":
@@ -500,7 +501,7 @@ The number 965 is comfortably within that range.
 * ***Maximum transmissions per individual NAK: 3*** - this confirms the
 suspicion raised regarding the loss recovery maximum time.
 
-### Receiver Statistics 2
+### Receiver Statistics 2 (lbmrcv)
 
 Here is the final receiver record from "lbmrcv" for transport session TS2
 "LBTRM:10.29.4.101:12091:3e76123d:239.101.3.10:14400":
@@ -558,7 +559,7 @@ the uninteresting messages.
 It suggests that the publisher should be reconfigured, probably mapping the
 topics to two different transport sessions.
 
-### Context Statistics
+### Context Statistics (lbmrcv)
 
 Here is the final context record from "lbmrcv":
 ````
@@ -624,7 +625,7 @@ so "lbmwrcv" will join both transport sessions.
 Its statistics consist of one context record and two receiver records
 (one for each joined transport session).
 
-### Receiver Statistics 1
+### Receiver Statistics 1 (lbmwrcv)
 
 Here is the final receiver record from "lbmwrcv" for transport session TS1
 "LBTRM:10.29.4.101:12090:3000f59f:239.101.3.10:14400":
@@ -680,7 +681,7 @@ The retransmissions were counted as duplicates.
 So this counter tells you the impact that other lossy receivers have on
 this receiver.
 
-### Receiver Statistics 2
+### Receiver Statistics 2 (lbmwrcv)
 
 Here is the final receiver record from "lbmwrcv" for transport session TS2
 "LBTRM:10.29.4.101:12091:3e76123d:239.101.3.10:14400":
